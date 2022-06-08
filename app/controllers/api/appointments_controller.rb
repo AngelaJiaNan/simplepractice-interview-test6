@@ -17,7 +17,7 @@ class Api::AppointmentsController < ApplicationController
       appointments = Appointment.all
     end
       appointments.each do |a|
-        @appointments.push({
+        appointments.push({
           id: a.id,
           patient: { name: a.patient.name },
           doctor: { name: a.doctor.name, id: a.doctor.id },
@@ -26,10 +26,11 @@ class Api::AppointmentsController < ApplicationController
           duration_in_minutes: a.duration_in_minutes
         })
       end
-      render json: @appointments
+      render json: appointments
   end
 
   def create
-    # TODO:
+
+
   end
 end
