@@ -22,23 +22,28 @@ Appointment.destroy_all
         )
         5.times do
             #Make 5 Future Appointments
-            Appointment.create(
+            appointment = Appointment.create(
                 patient_id: patient.id,
                 doctor_id: patient.doctor_id,
                 start_time: Faker::Date.between(from:Time.zone.now, to: 30.days.from_now),
                 duration_in_minutes: 50
             )
+            p appointment
         end
         5.times do
-            #Make 5 Past Appointments 
-            Appointment.create(
+            #Make 5 Past Appointments
+            appointment = Appointment.create(
                 patient_id: patient.id,
                 doctor_id: patient.doctor_id,
                 start_time: Faker::Date.between(from: 30.days.ago, to: Time.zone.now),
                 duration_in_minutes: 50
             )
+            p appointment
         end
     end
 end
 
 p "Created #{Doctor.count} doctors."
+p "Created #{Appointment.count} appointments."
+p "Created #{Patient.count} patients."
+p "Created #{doctor.patients.count} patients for doctor #{doctor.name}."
