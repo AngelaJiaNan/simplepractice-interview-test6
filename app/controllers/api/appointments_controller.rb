@@ -40,5 +40,6 @@ class Api::AppointmentsController < ApplicationController
       render json: appointment, status: created
     else
       render json: appointment.errors.full_messages
+    end
   end
 end
